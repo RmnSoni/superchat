@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>LiveChat</h1>
+        <h1>⚛️LiveChat</h1>
         <SignOut />
       </header>
 
@@ -81,10 +81,10 @@ function ChatRoom() {
   }
 
   return (<>
-    <div>
+    <main>
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
       <div ref={dummy} ></div>
-    </div>
+    </main>
     <form onSubmit={sendMessage} >
       <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
       <button type='submit' disabled={!formValue}> Send </button>
@@ -93,7 +93,7 @@ function ChatRoom() {
 
 function ChatMessage(props) {
   const { text, uid, photoURL } = props.message;
-  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'recieved';
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (
     <div className={`message ${messageClass}`}>
